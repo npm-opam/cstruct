@@ -1,0 +1,143 @@
+# OASIS_START
+# DO NOT EDIT (digest: 514db63fd66b2beab5efac3ce24087f9)
+# Ignore VCS directories, you can use the same kind of rule outside
+# OASIS_START/STOP if you want to exclude directories that contains
+# useless stuff for the build process
+true: annot, bin_annot
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library cstruct
+"lib/cstruct.cmxs": use_cstruct
+<lib/*.ml{,i,y}>: oasis_library_cstruct_ccopt
+"lib/cstruct_stubs.c": oasis_library_cstruct_ccopt
+<lib/cstruct.{cma,cmxa}>: use_libcstruct_stubs
+<lib/*.ml{,i,y}>: pkg_bigarray
+<lib/*.ml{,i,y}>: pkg_bytes
+<lib/*.ml{,i,y}>: pkg_ocplib-endian
+<lib/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<lib/*.ml{,i,y}>: pkg_sexplib
+"lib/cstruct_stubs.c": pkg_bigarray
+"lib/cstruct_stubs.c": pkg_bytes
+"lib/cstruct_stubs.c": pkg_ocplib-endian
+"lib/cstruct_stubs.c": pkg_ocplib-endian.bigstring
+"lib/cstruct_stubs.c": pkg_sexplib
+# Library async_cstruct
+"async/async_cstruct.cmxs": use_async_cstruct
+<async/*.ml{,i,y}>: pkg_async
+<async/*.ml{,i,y}>: pkg_bigarray
+<async/*.ml{,i,y}>: pkg_bytes
+<async/*.ml{,i,y}>: pkg_ocplib-endian
+<async/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<async/*.ml{,i,y}>: pkg_sexplib
+<async/*.ml{,i,y}>: pkg_threads
+<async/*.ml{,i,y}>: use_cstruct
+# Library lwt_cstruct
+"lwt/lwt_cstruct.cmxs": use_lwt_cstruct
+<lwt/*.ml{,i,y}>: pkg_bigarray
+<lwt/*.ml{,i,y}>: pkg_bytes
+<lwt/*.ml{,i,y}>: pkg_lwt.unix
+<lwt/*.ml{,i,y}>: pkg_ocplib-endian
+<lwt/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<lwt/*.ml{,i,y}>: pkg_sexplib
+<lwt/*.ml{,i,y}>: use_cstruct
+# Library unix_cstruct
+"unix/unix_cstruct.cmxs": use_unix_cstruct
+<unix/*.ml{,i,y}>: pkg_bigarray
+<unix/*.ml{,i,y}>: pkg_bytes
+<unix/*.ml{,i,y}>: pkg_ocplib-endian
+<unix/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<unix/*.ml{,i,y}>: pkg_sexplib
+<unix/*.ml{,i,y}>: pkg_unix
+<unix/*.ml{,i,y}>: use_cstruct
+# Executable ppx_cstruct
+<ppx/ppx_cstruct.{native,byte}>: pkg_bigarray
+<ppx/ppx_cstruct.{native,byte}>: pkg_ppx_tools.metaquot
+<ppx/*.ml{,i,y}>: pkg_bigarray
+<ppx/*.ml{,i,y}>: pkg_ppx_tools.metaquot
+<ppx/ppx_cstruct.{native,byte}>: custom
+# Executable test_bounds
+<lib_test/bounds.{native,byte}>: pkg_bigarray
+<lib_test/bounds.{native,byte}>: pkg_bytes
+<lib_test/bounds.{native,byte}>: pkg_oUnit
+<lib_test/bounds.{native,byte}>: pkg_ocplib-endian
+<lib_test/bounds.{native,byte}>: pkg_ocplib-endian.bigstring
+<lib_test/bounds.{native,byte}>: pkg_sexplib
+<lib_test/bounds.{native,byte}>: pkg_unix
+<lib_test/bounds.{native,byte}>: use_cstruct
+<lib_test/bounds.{native,byte}>: use_unix_cstruct
+<lib_test/*.ml{,i,y}>: pkg_unix
+<lib_test/*.ml{,i,y}>: use_unix_cstruct
+<lib_test/bounds.{native,byte}>: custom
+# Executable test_ppx_basic
+<ppx_test/basic.{native,byte}>: pkg_bigarray
+<ppx_test/basic.{native,byte}>: pkg_bytes
+<ppx_test/basic.{native,byte}>: pkg_oUnit
+<ppx_test/basic.{native,byte}>: pkg_ocplib-endian
+<ppx_test/basic.{native,byte}>: pkg_ocplib-endian.bigstring
+<ppx_test/basic.{native,byte}>: pkg_ppx_tools.metaquot
+<ppx_test/basic.{native,byte}>: pkg_sexplib
+<ppx_test/basic.{native,byte}>: pkg_unix
+<ppx_test/basic.{native,byte}>: use_cstruct
+<ppx_test/basic.{native,byte}>: use_unix_cstruct
+<ppx_test/basic.{native,byte}>: custom
+# Executable test_ppx_enum
+<ppx_test/enum.{native,byte}>: pkg_bigarray
+<ppx_test/enum.{native,byte}>: pkg_bytes
+<ppx_test/enum.{native,byte}>: pkg_oUnit
+<ppx_test/enum.{native,byte}>: pkg_ocplib-endian
+<ppx_test/enum.{native,byte}>: pkg_ocplib-endian.bigstring
+<ppx_test/enum.{native,byte}>: pkg_ppx_tools.metaquot
+<ppx_test/enum.{native,byte}>: pkg_sexplib
+<ppx_test/enum.{native,byte}>: pkg_unix
+<ppx_test/enum.{native,byte}>: use_cstruct
+<ppx_test/enum.{native,byte}>: use_unix_cstruct
+<ppx_test/enum.{native,byte}>: custom
+# Executable test_ppx_pcap
+<ppx_test/pcap.{native,byte}>: pkg_bigarray
+<ppx_test/pcap.{native,byte}>: pkg_bytes
+<ppx_test/pcap.{native,byte}>: pkg_oUnit
+<ppx_test/pcap.{native,byte}>: pkg_ocplib-endian
+<ppx_test/pcap.{native,byte}>: pkg_ocplib-endian.bigstring
+<ppx_test/pcap.{native,byte}>: pkg_ppx_tools.metaquot
+<ppx_test/pcap.{native,byte}>: pkg_sexplib
+<ppx_test/pcap.{native,byte}>: pkg_unix
+<ppx_test/pcap.{native,byte}>: use_cstruct
+<ppx_test/pcap.{native,byte}>: use_unix_cstruct
+<ppx_test/*.ml{,i,y}>: pkg_bigarray
+<ppx_test/*.ml{,i,y}>: pkg_bytes
+<ppx_test/*.ml{,i,y}>: pkg_oUnit
+<ppx_test/*.ml{,i,y}>: pkg_ocplib-endian
+<ppx_test/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<ppx_test/*.ml{,i,y}>: pkg_ppx_tools.metaquot
+<ppx_test/*.ml{,i,y}>: pkg_sexplib
+<ppx_test/*.ml{,i,y}>: pkg_unix
+<ppx_test/*.ml{,i,y}>: use_cstruct
+<ppx_test/*.ml{,i,y}>: use_unix_cstruct
+<ppx_test/pcap.{native,byte}>: custom
+# Executable misc_tests
+<lib_test/tests.{native,byte}>: pkg_bigarray
+<lib_test/tests.{native,byte}>: pkg_bytes
+<lib_test/tests.{native,byte}>: pkg_oUnit
+<lib_test/tests.{native,byte}>: pkg_ocplib-endian
+<lib_test/tests.{native,byte}>: pkg_ocplib-endian.bigstring
+<lib_test/tests.{native,byte}>: pkg_sexplib
+<lib_test/tests.{native,byte}>: use_cstruct
+<lib_test/*.ml{,i,y}>: pkg_bigarray
+<lib_test/*.ml{,i,y}>: pkg_bytes
+<lib_test/*.ml{,i,y}>: pkg_oUnit
+<lib_test/*.ml{,i,y}>: pkg_ocplib-endian
+<lib_test/*.ml{,i,y}>: pkg_ocplib-endian.bigstring
+<lib_test/*.ml{,i,y}>: pkg_sexplib
+<lib_test/*.ml{,i,y}>: use_cstruct
+<lib_test/tests.{native,byte}>: custom
+# OASIS_STOP
+true: annot, bin_annot, debug, principal
+<ppx_test/*.ml>: ppx(./ppx/ppx_cstruct.native)
